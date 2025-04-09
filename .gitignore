@@ -5,3 +5,5 @@ api-dev/node_modules
 .env
 dist
 
+# IDE
+.idea/

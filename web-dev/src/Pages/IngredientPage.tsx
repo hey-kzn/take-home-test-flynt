@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import { Box, Button } from "@mui/material";
 import { useQueryIngredientList } from "../Hooks/Query/IngredientQuery";
 import { Loader } from "../Components/Loader";
