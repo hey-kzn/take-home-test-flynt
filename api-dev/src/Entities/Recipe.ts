@@ -21,7 +21,7 @@ export class Recipe {
   @Column()
   numberOfPeople: number;
 
-  @ManyToMany(() => Ingredient)
+  @ManyToMany(() => Ingredient, ingredient => ingredient.recipes)
   @JoinTable()
   ingredients: Ingredient[];
 }

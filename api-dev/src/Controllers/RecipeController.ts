@@ -3,6 +3,7 @@ import {Request, Response} from "express";
 import {CreateRecipeDTO} from "../dto/create-recipe.dto";
 
 export class RecipeController {
+  // Pas de type Request && Response
   public static async list(req: any, res: any, next: any): Promise<void> {
     try {
       const recipes = await RecipeService.list();
@@ -13,6 +14,7 @@ export class RecipeController {
     }
   }
 
+  // Ajouter un type de return (Exemple une classe de reponse de requête pour standardiser les resp)
   public static async create(req: Request, res: Response): Promise<void> {
     try {
       const data: CreateRecipeDTO = req.body;

@@ -2,6 +2,7 @@ import { getRepository } from "typeorm";
 import { Ingredient } from "../Entities/Ingredient";
 
 export class IngredientService {
+  // Pas de type return
   static async list(): Promise<Ingredient[]> {
     const ingredient = await getRepository(Ingredient).find();
     return ingredient;
