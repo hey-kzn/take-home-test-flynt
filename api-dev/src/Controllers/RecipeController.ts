@@ -1,4 +1,6 @@
 import { RecipeService } from "../Services/RecipeService";
+import {Request, Response} from "express";
+import {CreateRecipeDTO} from "../dto/create-recipe.dto";
 
 export class RecipeController {
   public static async list(req: any, res: any, next: any): Promise<void> {
@@ -11,10 +13,12 @@ export class RecipeController {
     }
   }
 
-  public static async create(req: any, res: any, next: any): Promise<void> {
+  public static async create(req: Request, res: Response): Promise<void> {
     try {
-      const recipe = await RecipeService.create(req.body);
-      res.send(recipe);
+      const data: CreateRecipeDTO = req.body;
+      const result = await RecipeService.create(data);
+
+      res.status(201).json(result);
     } catch (err) {
       console.error("[RecipeController.create] Error creating recipe", err);
       res.send(500);
